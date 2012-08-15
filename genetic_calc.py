@@ -3,22 +3,27 @@ import re
 import itertools
 
 
-MORPH_DICT = {"bumblebee":["pastel", "spider"], "pastave":["mojave", "pastel"], "pastel":["pastel","normal"], "super pastel":["pastel", "pastel"]}
+DESIGNER_DICT = {"bumblebee":["pastel", "spider"], "pastave":["mojave", "pastel"], "pastel":["pastel","normal"], "super pastel":["pastel", "pastel"]}
+
+# creates a dictionary of het morphs
+def morph_dictionary():
+    morph_list = ["pastel", "butter", "mojave", "yellow belly", "mocha", "het. albino", "desert", "pinstripe", "het. pied", "het. hypo", "spider", "harlequin", "woma", "het. axanthic,", "het. ultra mel"]
+    morph_dict = {}
+    for each in morph_list:
+        morph_dict[each] = [each, "normal"]
+    return morph_dict
+
 
 # checks what morphs you can breed with your current stock
 # gender? -- will be important to check
-# def process_collection(collection):
-#     collection_list = re.findall(r'\w+', collection)
-#     for k,v in MORPH_DICT.items():
-#         common = list(set(v) & set(collection_list)
-#         if common == MORPH_DICT[k]:
-#             print "FOUND: ", k
-#         else:
-#             print ("can't create %s") % k
+def process_collection(collection):
+    collection_list = re.findall(r'\w+', collection)
+    for k,v in DESIGNER_DICT.items():
+        common = list(set(v) & set(collection_list))
+        if common == DESIGNER_DICT[k]:
+            print ("able to create %s with %s and %s.") % (k, v[0], v[1])
 
-# simple punnett square - calculates what traits may be present in offspring
-# how do i deal with more than two traits? 
-# for example -- super pastel can also be het while expressing a homo co-dom
+# punnett square - calculates what traits may be present in offspring
 def punnett_square(parents):
     return list(itertools.product(*parents))
 
@@ -39,7 +44,7 @@ def trait_percentage(parents):
 # ie pastel pastel is super pastel, pastel mojave is pastave
 
 # p = [['pastel', 'het albino'],['pastel','normal']]
-p = [['normal', 'normal', 'het albino'], ['normal', 'normal']]
-c = "pastel, spider, normal"
-d = {"trait1":[['A', 'a'],['A', 'a']], "trait2":[['B', 'b'], ['b', 'b']]}
-trait_percentage(p)
+# p = [['pastel', 'pastel'], ['pastel', 'normal']]
+# c = "pastel, spider, normal"
+# d = {"trait1":[['A', 'a'],['A', 'a']], "trait2":[['B', 'b'], ['b', 'b']]}
+

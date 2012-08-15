@@ -21,50 +21,16 @@ html, body {
 }
 p, h1, h2, h3, h4, h5, h6 {
   margin: 0;
+
 }
-.oval {
-  background: #000000;
-  border: none;
-  width: 260px;
-  height: 258px;
+.image {
+  width: 324px;
+  height: 216px;
   position: absolute;
-  top: 22px;
-  left: 359px;
-  border-radius: 130px / 129px;
+  top: 59px;
+  left: 315px;
 }
-.text {
-  color: #ffffff;
-  font-family:"Arial";
-  font-size: 12pt;
-  font-weight: normal;
-  font-style: normal;
-  text-align: left;
-  position: absolute;
-  top: 162px;
-  left: 131px;
-}
-.text-1 {
-  color: #7d7d7d;
-  font-family:"Arial";
-  font-size: 12pt;
-  font-weight: normal;
-  font-style: normal;
-  text-align: left;
-  position: absolute;
-  top: 182px;
-  left: 138px;
-}
-.oval-1 {
-  background: #80ccff;
-  border: none;
-  width: 11px;
-  height: 6px;
-  position: absolute;
-  top: 47px;
-  left: -24px;
-  border-radius: 6px / 3px;
-}
-.paragraph {
+.introduction {
   width: 540px;
   height: 80px;
   font-family:'Helvetica Neue';
@@ -76,7 +42,7 @@ p, h1, h2, h3, h4, h5, h6 {
   font-size: 18pt;
   overflow: hidden;
   float: none;
-  text-align: left;
+  text-align: center;
   text-shadow: none;
   background-color: rgba(0, 0, 0, 0);
   color: rgb(41, 41, 41);
@@ -125,7 +91,7 @@ p, h1, h2, h3, h4, h5, h6 {
   top: 390px;
   left: 520px;
 }
-.basic-ok-button {
+.calculateButton {
   width: 198px;
   height: 48px;
   border-radius: 3px;
@@ -145,14 +111,14 @@ p, h1, h2, h3, h4, h5, h6 {
   top: 710px;
   left: 390px;
 }
-.basic-ok-button span {
+.calculateButton span {
   display: table-cell;
   vertical-align: middle;
   text-align: center;
   text-shadow: none;
   font-size: 15;
 }
-.textarea-2 {
+.results {
   width: 621.0101013183594px;
   height: 77.96969795227051px;
   padding: 5px 8px;
@@ -177,23 +143,13 @@ p, h1, h2, h3, h4, h5, h6 {
 
 <head>
     <meta charset="utf-8" />
-    <title>gencalc</title>
+    <title>GC</title>
   </head>
    
   <body>
     <div id="page-wrapper">
-      <div class="oval">
-        <div class="text">Genetic</div>
-        <div class="text-1">Calculator</div>
-      </div>
-      <div class="oval-1"></div>
-      <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus facilisis bibendum
-        fermentum. Donec dolor ante, iaculis at tincidunt ac, dapibus in risus. Donec aliquam
-        consectetur libero, eget dignissim nisl laoreet quis. Suspendisse eget enim nec enim
-        interdum commodo ut facilisis nunc. Aenean nec molestie nibh. Aliquam dolor enim,
-        consequat vitae lobortis posuere, convallis eleifend lorem. Donec ipsum velit, venenatis
-        at sollicitudin id, sollicitudin sit amet libero. Vestibulum cursus tellus eget mauris
-        interdum ac bibendum sapien dictum. In hac habitasse platea dictumst. </p>
+      <img class="image" src="python.jpg" />
+      <p class="introduction">A genetic calculator for ball pythons, written in python. Track the open source project at <a href="https://github.com/ccontrast/Genetic-Calculator" style="#6666FF">github.</a></p>
       <select size="15" class="selectionField" multiple="yes" > 
       <option value="Pastel" >Pastel</option>
       <option value="Butter" >Butter</option>
@@ -228,8 +184,8 @@ p, h1, h2, h3, h4, h5, h6 {
       <option value="Het. Axanthic" >Het. Axanthic</option>
       <option value="Het. Ultra Mel" >Het. Ultra Mel</option>
       </select>
-      <a href="#" class="basic-ok-button"><span>Calculate</span></a>
-      <textarea class="textarea textarea-2">textarea</textarea>
+      <a href="#" class="calculateButton"><span>Calculate</span></a>
+      <textarea class="results">Results go here!</textarea>
     </div>
   </body>
  
