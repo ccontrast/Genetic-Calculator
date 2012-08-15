@@ -1,0 +1,238 @@
+<html>
+	<style type="text/css">
+
+
+html, body {
+  margin: 0px;
+  padding: 0px;
+  background-color: #ffffff;
+}
+#page-wrapper {
+  position: relative;
+  width: 960px;
+  /* centers the document */
+  margin: 0 auto;
+  /*
+  hides anything drawn off canvas.
+  remove overflow and height to see things drawn off canvas.
+  */
+  overflow: hidden;
+  height: 1000px;
+}
+p, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+.oval {
+  background: #000000;
+  border: none;
+  width: 260px;
+  height: 258px;
+  position: absolute;
+  top: 22px;
+  left: 359px;
+  border-radius: 130px / 129px;
+}
+.text {
+  color: #ffffff;
+  font-family:"Arial";
+  font-size: 12pt;
+  font-weight: normal;
+  font-style: normal;
+  text-align: left;
+  position: absolute;
+  top: 162px;
+  left: 131px;
+}
+.text-1 {
+  color: #7d7d7d;
+  font-family:"Arial";
+  font-size: 12pt;
+  font-weight: normal;
+  font-style: normal;
+  text-align: left;
+  position: absolute;
+  top: 182px;
+  left: 138px;
+}
+.oval-1 {
+  background: #80ccff;
+  border: none;
+  width: 11px;
+  height: 6px;
+  position: absolute;
+  top: 47px;
+  left: -24px;
+  border-radius: 6px / 3px;
+}
+.paragraph {
+  width: 540px;
+  height: 80px;
+  font-family:'Helvetica Neue';
+  padding: 0px;
+  border-radius: 0px;
+  border: none;
+  font-weight: 300;
+  line-height: 1.5;
+  font-size: 18pt;
+  overflow: hidden;
+  float: none;
+  text-align: left;
+  text-shadow: none;
+  background-color: rgba(0, 0, 0, 0);
+  color: rgb(41, 41, 41);
+  position: absolute;
+  top: 300px;
+  left: 210px;
+}
+.selectionField {
+  width: 272px;
+  height: 278px;
+  padding: 5px 8px;
+  font-size: 12pt;
+  font-family:'Helvetica Neue';
+  color: rgb(51, 51, 51);
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(207, 207, 207);
+  border-radius: 3px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.0976563) 0px 1px 8px 0px inset;
+  box-shadow: rgba(0, 0, 0, 0.0976563) 0px 1px 8px 0px inset;
+  text-shadow: none;
+  font-weight: normal;
+  float: none;
+  text-align: left;
+  position: absolute;
+  top: 390px;
+  left: 170px;
+}
+.selectionField1 {
+  width: 272px;
+  height: 278px;
+  padding: 5px 8px;
+  font-size: 12pt;
+  font-family:'Helvetica Neue';
+  color: rgb(51, 51, 51);
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(207, 207, 207);
+  border-radius: 3px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.0976563) 0px 1px 8px 0px inset;
+  box-shadow: rgba(0, 0, 0, 0.0976563) 0px 1px 8px 0px inset;
+  text-shadow: none;
+  font-weight: normal;
+  float: none;
+  text-align: left;
+  font-style: normal;
+  position: absolute;
+  top: 390px;
+  left: 520px;
+}
+.basic-ok-button {
+  width: 198px;
+  height: 48px;
+  border-radius: 3px;
+  color: rgb(255, 255, 255);
+  font-family:'Helvetica Neue';
+  font-size: 10pt;
+  font-weight: normal;
+  text-decoration: none;
+  display: table;
+  border: 1px solid rgb(0, 84, 163);
+  background-color: rgb(61, 136, 204);
+  float: none;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  background-image: -webkit-linear-gradient(270deg, rgb(61, 136, 204) 0%, rgb(3, 81, 153) 100%);
+  position: absolute;
+  top: 710px;
+  left: 390px;
+}
+.basic-ok-button span {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  text-shadow: none;
+  font-size: 15;
+}
+.textarea-2 {
+  width: 621.0101013183594px;
+  height: 77.96969795227051px;
+  padding: 5px 8px;
+  font-size: 12pt;
+  font-family:'Helvetica Neue';
+  color: rgb(51, 51, 51);
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(207, 207, 207);
+  border-radius: 2px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.0976563) 0px 0px 7px 0px inset;
+  box-shadow: rgba(0, 0, 0, 0.0976563) 0px 0px 7px 0px inset;
+  text-shadow: none;
+  font-weight: normal;
+  float: none;
+  text-align: left;
+  position: absolute;
+  top: 809px;
+  left: 170px;
+}
+
+</style>
+
+<head>
+    <meta charset="utf-8" />
+    <title>gencalc</title>
+  </head>
+   
+  <body>
+    <div id="page-wrapper">
+      <div class="oval">
+        <div class="text">Genetic</div>
+        <div class="text-1">Calculator</div>
+      </div>
+      <div class="oval-1"></div>
+      <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus facilisis bibendum
+        fermentum. Donec dolor ante, iaculis at tincidunt ac, dapibus in risus. Donec aliquam
+        consectetur libero, eget dignissim nisl laoreet quis. Suspendisse eget enim nec enim
+        interdum commodo ut facilisis nunc. Aenean nec molestie nibh. Aliquam dolor enim,
+        consequat vitae lobortis posuere, convallis eleifend lorem. Donec ipsum velit, venenatis
+        at sollicitudin id, sollicitudin sit amet libero. Vestibulum cursus tellus eget mauris
+        interdum ac bibendum sapien dictum. In hac habitasse platea dictumst. </p>
+      <select size="15" class="selectionField" multiple="yes" > 
+      <option value="Pastel" >Pastel</option>
+      <option value="Butter" >Butter</option>
+      <option value="Mojave" >Mojave</option>      
+      <option value="Yellow Belly" >Yellow Belly</option>
+      <option value="Mocha" >Mocha</option>
+      <option value="Het. Albino" >Het. Albino</option>
+      <option value="Desert" >Desert</option>
+      <option value="Pinstripe" >Pinstripe</option>
+      <option value="Het. Pied" >Het. Pied</option>
+      <option value="Het. Hypo" >Het. Hypo</option>
+      <option value="Spider" >Spider</option>
+      <option value="Harlequin" >Harlequin</option>      
+      <option value="Woma" >Woma</option>
+      <option value="Het. Axanthic" >Het. Axanthic</option>
+      <option value="Het. Ultra Mel" >Het. Ultra Mel</option>
+      </select>
+      <select size="15" class="selectionField1" multiple="yes" > 
+      <option value="Pastel" >Pastel</option>
+      <option value="Butter" >Butter</option>
+      <option value="Mojave" >Mojave</option>      
+      <option value="Yellow Belly" >Yellow Belly</option>
+      <option value="Mocha" >Mocha</option>
+      <option value="Het. Albino" >Het. Albino</option>
+      <option value="Desert" >Desert</option>
+      <option value="Pinstripe" >Pinstripe</option>
+      <option value="Het. Pied" >Het. Pied</option>
+      <option value="Het. Hypo" >Het. Hypo</option>
+      <option value="Spider" >Spider</option>
+      <option value="Harlequin" >Harlequin</option>      
+      <option value="Woma" >Woma</option>
+      <option value="Het. Axanthic" >Het. Axanthic</option>
+      <option value="Het. Ultra Mel" >Het. Ultra Mel</option>
+      </select>
+      <a href="#" class="basic-ok-button"><span>Calculate</span></a>
+      <textarea class="textarea textarea-2">textarea</textarea>
+    </div>
+  </body>
+ 
+</html>
+
+</html>
