@@ -1,5 +1,7 @@
+from __future__ import division
 import re
 import itertools
+
 
 MORPH_DICT = {"bumblebee":["pastel", "spider"], "pastave":["mojave", "pastel"], "pastel":["pastel","normal"], "super pastel":["pastel", "pastel"]}
 
@@ -31,11 +33,13 @@ def trait_percentage(parents):
         count[traits] = count.get(traits,0) + 1
     for k,v in count.items():    
         percentage = (count[k]/total) * 100
-        print ("%s : %s") % (percentage, k)
+        print ("%s%% : %s") % (percentage, k)
 
 # combine with the morph dictionary to further define traits
 # ie pastel pastel is super pastel, pastel mojave is pastave
 
-p = [['pastel','het albino', 'normal'],['pastel','normal']]
+# p = [['pastel', 'het albino'],['pastel','normal']]
+p = [['normal', 'normal', 'het albino'], ['normal', 'normal']]
 c = "pastel, spider, normal"
+d = {"trait1":[['A', 'a'],['A', 'a']], "trait2":[['B', 'b'], ['b', 'b']]}
 trait_percentage(p)
