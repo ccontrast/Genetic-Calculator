@@ -3,7 +3,16 @@ import re
 import itertools
 
 
-DESIGNER_DICT = {"bumblebee":["pastel", "spider"], "pastave":["mojave", "pastel"], "pastel":["pastel","normal"], "super pastel":["pastel", "pastel"]}
+
+class Parent():
+    def __init__(self, trait):
+        self.trait = trait
+
+
+
+DESIGNER_DICT = {"bumblebee":["pastel", "spider"], 
+"pastave":["mojave", "pastel"], "pastel":["pastel","normal"], 
+"super pastel":["pastel", "pastel"]}
 
 # creates a dictionary of het morphs
 def morph_dictionary():
@@ -27,9 +36,13 @@ def process_collection(collection):
 def punnett_square(parents):
     return list(itertools.product(*parents))
 
+# combines mother and father traits into one list and
 # returns percentages for likelyhood of offspring expressing trait
-def trait_percentage(parents):
-    genes = [list(i) for i in punnett_square(parents)]
+def trait_percentage(mother, father):
+    parent_list = []
+    parent_list.append(mother.trait)
+    parent_list.append(father.trait)
+    genes = [list(i) for i in punnett_square(parent_list)]
     total = float(len(genes))
     count = {}
     for traits in genes:
@@ -43,8 +56,14 @@ def trait_percentage(parents):
 # combine with the morph dictionary to further define traits
 # ie pastel pastel is super pastel, pastel mojave is pastave
 
+#how can we make it faster?
+
 # p = [['pastel', 'het albino'],['pastel','normal']]
-# p = [['pastel', 'pastel'], ['pastel', 'normal']]
+p = [['pastel', 'pastel'], ['pastel', 'normal']]
 # c = "pastel, spider, normal"
 # d = {"trait1":[['A', 'a'],['A', 'a']], "trait2":[['B', 'b'], ['b', 'b']]}
+
+first = Parent(['albino', 'normal'])
+second = Parent(['normal', 'normal'])
+trait_percentage(first, second)
 
