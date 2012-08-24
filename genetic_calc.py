@@ -2,13 +2,8 @@ from __future__ import division
 import re
 import itertools
 
-
-
-class Parent():
-    def __init__(self, trait):
-        self.trait = trait
-
-
+# connect to postgress
+# database contains designer morphs
 
 DESIGNER_DICT = {"bumblebee":["pastel", "spider"], 
 "pastave":["mojave", "pastel"], "pastel":["pastel","normal"], 
@@ -21,37 +16,6 @@ def morph_dictionary():
     for each in morph_list:
         morph_dict[each] = [each, "normal"]
     return morph_dict
-
-
-# checks what morphs you can breed with your current stock
-# gender? -- will be important to check
-def process_collection(collection):
-    collection_list = re.findall(r'\w+', collection)
-    for k,v in DESIGNER_DICT.items():
-        common = list(set(v) & set(collection_list))
-        if common == DESIGNER_DICT[k]:
-            print ("able to create %s with %s and %s.") % (k, v[0], v[1])
-
-# punnett square - calculates what traits may be present in offspring
-def punnett_square(parents):
-    return list(itertools.product(*parents))
-
-# combines mother and father traits into one list and
-# returns percentages for likelyhood of offspring expressing trait
-def trait_percentage(mother, father):
-    parent_list = []
-    parent_list.append(mother.trait)
-    parent_list.append(father.trait)
-    genes = [list(i) for i in punnett_square(parent_list)]
-    total = float(len(genes))
-    count = {}
-    for traits in genes:
-        traits.sort()
-        traits = tuple(traits)
-        count[traits] = count.get(traits,0) + 1
-    for k,v in count.items():    
-        percentage = (count[k]/total) * 100
-        print ("%s%% : %s") % (percentage, k)
 
 # combine with the morph dictionary to further define traits
 # ie pastel pastel is super pastel, pastel mojave is pastave
@@ -66,4 +30,41 @@ p = [['pastel', 'pastel'], ['pastel', 'normal']]
 first = Parent(['albino', 'normal'])
 second = Parent(['normal', 'normal'])
 trait_percentage(first, second)
+
+# punnett square - calculates what traits may be present in offspring
+def punnett_square(parents):
+    return list(itertools.product(*parents))
+
+
+class Python():
+    def __init__(self, trait):
+        self.trait = trait
+
+    def trait_percentage(self, father):
+        parent_list = []
+        parent_list.append(self.trait)
+        parent_list.append(father.trait)
+        genes = [list(i) for i in punnett_square(parent_list)]
+        total = float(len(genes))
+        count = {}
+        for traits in genes:
+            traits.sort()
+            traits = tuple(traits)
+            count[traits] = count.get(traits,0) + 1
+        for k,v in count.items():    
+            percentage = (count[k]/total) * 100
+            print ("%s%% : %s") % (percentage, k)
+
+class Collection():
+    def __init__(self, pythonlist):
+        self.pythonlist = pythonlist 
+
+    # checks what morphs you can breed with your current stock
+    # gender? -- will be important to check
+    def process_collection(collection):
+        collection_list = re.findall(r'\w+', collection)
+        for k,v in DESIGNER_DICT.items():
+            common = list(set(v) & set(collection_list))
+            if common == DESIGNER_DICT[k]:
+                print ("able to create %s with %s and %s.") % (k, v[0], v[1])
 
